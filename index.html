@@ -6,6 +6,15 @@
   <title>Passthrough AR with Video</title>
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.2.1/aframe/build/aframe-ar.min.js"></script>
+  <script>
+    // Debugging marker detection
+    document.addEventListener('markerFound', function(event) {
+      console.log('Marker found!');
+    });
+    document.addEventListener('markerLost', function(event) {
+      console.log('Marker lost!');
+    });
+  </script>
 </head>
 <body style="margin: 0; overflow: hidden;">
   <!-- AR Scene -->
@@ -24,7 +33,7 @@
 
     <!-- Video Source -->
     <a-assets>
-      <video id="video" autoplay loop="true" src="tunicates.mp4" crossorigin="anonymous"></video>
+      <video id="video" autoplay loop="true" src="assets/tunicates.mp4" crossorigin="anonymous"></video>
     </a-assets>
 
     <!-- Camera -->
