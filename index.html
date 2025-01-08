@@ -36,8 +36,7 @@
 
   <a-scene
     embedded
-    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-    renderer="logarithmicDepthBuffer: true;">
+    arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
     <!-- Hiro Marker-based AR -->
     <a-marker preset="hiro">
       <!-- Video Plane -->
@@ -55,8 +54,12 @@
       <video id="video" autoplay loop="true" src="https://lukewelsh.github.io/PHMA/tunicates.mp4" crossorigin="anonymous"></video>
     </a-assets>
 
-    <!-- Camera -->
-    <a-camera></a-camera>
+    <!-- Camera with permissions -->
+    <a-camera 
+      position="0 0 0" 
+      look-controls="enabled: true;" 
+      wasd-controls="enabled: false;" 
+      pinch-zoom="enabled: false;"></a-camera>
   </a-scene>
 
 </body>
