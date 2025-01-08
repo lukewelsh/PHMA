@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Passthrough AR with Video</title>
+  <title>Passthrough AR with YouTube Video</title>
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.2.1/aframe/build/aframe-ar.min.js"></script>
 </head>
@@ -12,19 +12,17 @@
   <a-scene embedded arjs>
     <!-- Marker-based AR -->
     <a-marker preset="hiro">
-      <!-- Video Plane that will appear when marker is detected -->
-      <a-video 
-        src="#video" 
+      <!-- YouTube Video Embed -->
+      <a-entity 
+        geometry="primitive: plane; width: 4; height: 2.25" 
         position="0 1 -3" 
-        rotation="0 0 0" 
-        width="4" 
-        height="2.25">
-      </a-video>
+        material="shader: html; target: #youtube-embed">
+      </a-entity>
     </a-marker>
 
-    <!-- Video Source (Make sure this video is in your repository) -->
+    <!-- YouTube Video Source (Iframe embedded) -->
     <a-assets>
-      <video id="video" autoplay loop="true" src="tunicates.mp4" crossorigin="anonymous"></video>
+      <iframe id="youtube-embed" src="https://www.youtube.com/embed/9ROD-eBCMB8?autoplay=1" frameborder="0" allowfullscreen="true"></iframe>
     </a-assets>
 
     <!-- Camera -->
