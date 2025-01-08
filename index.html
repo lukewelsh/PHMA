@@ -5,36 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Passthrough AR with Video</title>
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.2.1/aframe/build/aframe-ar.min.js"></script>
-  <script>
-    // Debugging marker detection
-    document.addEventListener('markerFound', function(event) {
-      console.log('Marker found!');
-    });
-    document.addEventListener('markerLost', function(event) {
-      console.log('Marker lost!');
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-  <!-- AR Scene -->
-  <a-scene embedded arjs>
-    <!-- Marker-based AR -->
+  <!-- AR Scene with Debug Information -->
+  <a-scene embedded arjs debug>
+    <!-- Marker-based AR with Hiro Marker -->
     <a-marker preset="hiro">
-      <!-- Video Plane that will appear when marker is detected -->
+      <!-- Video Plane -->
       <a-video 
-        src="#video" 
-        position="0 1 -3" 
+        src="https://lukewelsh.github.io/PHMA/tunicates.mp4" 
+        position="0 0.5 -2" 
         rotation="0 0 0" 
         width="4" 
         height="2.25">
       </a-video>
+      <!-- Add a box to indicate marker detection -->
+      <a-box position="0 0.5 0" rotation="0 0 0" width="1" height="1" depth="1" color="green"></a-box>
     </a-marker>
-
-    <!-- Video Source -->
-    <a-assets>
-      <video id="video" autoplay loop="true" src="https://lukewelsh.github.io/PHMA/tunicates.mp4" crossorigin="anonymous"></video>
-    </a-assets>
 
     <!-- Camera -->
     <a-camera></a-camera>
