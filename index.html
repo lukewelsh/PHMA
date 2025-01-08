@@ -8,21 +8,24 @@
   <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-  <!-- AR Scene with Debug Information -->
-  <a-scene embedded arjs debug>
+  <!-- AR Scene -->
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: true;">
     <!-- Marker-based AR with Hiro Marker -->
     <a-marker preset="hiro">
-      <!-- Video Plane -->
+      <!-- Video Plane that will appear when marker is detected -->
       <a-video 
-        src="https://lukewelsh.github.io/PHMA/tunicates.mp4" 
+        src="#video" 
         position="0 0.5 -2" 
         rotation="0 0 0" 
         width="4" 
         height="2.25">
       </a-video>
-      <!-- Add a box to indicate marker detection -->
-      <a-box position="0 0.5 0" rotation="0 0 0" width="1" height="1" depth="1" color="green"></a-box>
     </a-marker>
+
+    <!-- Video Source -->
+    <a-assets>
+      <video id="video" autoplay loop="true" src="https://lukewelsh.github.io/PHMA/tunicates.mp4" crossorigin="anonymous"></video>
+    </a-assets>
 
     <!-- Camera -->
     <a-camera></a-camera>
