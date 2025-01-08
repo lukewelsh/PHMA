@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AR.js Test - Blue Cube</title>
+  <title>Tunicates</title>
   <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.0/aframe/build/aframe-ar.js"></script>
 </head>
@@ -11,8 +11,16 @@
   <a-scene embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
     <!-- Marker-based AR (Hiro) -->
     <a-marker preset="hiro">
-      <!-- Simple blue cube to test marker detection -->
-      <a-box position="0 0.5 0" rotation="0 45 0" color="blue"></a-box>
+      <!-- Video to appear when the marker is detected -->
+      <a-assets>
+        <video id="video" autoplay loop="true" muted playsinline>
+          <source src="https://lukewelsh.github.io/PHMA/tunicates.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </a-assets>
+
+      <!-- Video plane showing up with the marker -->
+      <a-video src="#video" position="0 0 0" width="2" height="2"></a-video>
     </a-marker>
 
     <!-- Camera -->
