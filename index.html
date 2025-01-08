@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AR.js Test</title>
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <title>AR.js with Blue Cube</title>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.0/aframe/build/aframe-ar.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
   <a-scene embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
-    <!-- Marker-based AR (Hiro) -->
+    <!-- Marker-based AR -->
     <a-marker preset="hiro">
-      <!-- 3D Model to appear on marker -->
-      <a-box position="0 0.5 0" color="blue"></a-box>
+      <!-- Blue cube that will appear when the marker is detected -->
+      <a-box position="0 0.5 0" rotation="0 45 0" color="blue"></a-box>
     </a-marker>
 
     <!-- Camera -->
