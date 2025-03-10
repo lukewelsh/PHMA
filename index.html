@@ -12,9 +12,10 @@
             height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             position: relative;
             flex-direction: column;
+            background-color: #000;
         }
         /* Video background */
         video {
@@ -31,13 +32,16 @@
             width: 90%;
             max-width: 600px;
             text-align: center;
-            z-index: 1; /* Ensures buttons and content are in front */
+            z-index: 1;
+            margin-top: 20px;
         }
         .species-image {
             width: 100%;
             max-width: 300px;
-            margin: 0 auto 20px; /* Centers the image */
+            margin-bottom: 20px;
             display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         .button {
             display: inline-block;
@@ -50,23 +54,27 @@
             border-radius: 10px;
             transition: transform 0.2s, background 0.3s;
             text-align: center;
+            font-family: 'Cormorant Garamond', Georgia, serif;
         }
         .button:hover {
-            background: rgba(0, 167, 168, 0.9);
+            background: rgb(0, 167, 168); /* Correct hover color */
+            color: white;
             transform: scale(1.1);
         }
         /* Adjusting info card style */
         .info-card {
             display: none;
-            position: relative;
-            margin-top: 30px;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
             max-width: 400px;
             text-align: center;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-            z-index: 1; /* Ensure info card stays on top */
+            z-index: 10;
         }
         .info-card h2 {
             margin-top: 0;
@@ -88,7 +96,7 @@
         Your browser does not support the video tag.
     </video>
     <div class="container">
-        <img src="artemia_salina.png" alt="Brine Shrimp" class="species-image">
+        <img src="species_placeholder.png" alt="Brine Shrimp" class="species-image">
         <button class="button" onclick="showInfo('Introduction')">Introduction</button>
         <button class="button" onclick="showInfo('Habitat & Range')">Habitat & Range</button>
         <button class="button" onclick="showInfo('Lifespan & Growth')">Lifespan & Growth</button>
