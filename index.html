@@ -35,6 +35,12 @@
             z-index: 1;
             margin-top: 20px;
         }
+        /* Add logo styling */
+        .logo {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
         .species-image {
             width: 100%;
             max-width: 300px;
@@ -96,7 +102,9 @@
         Your browser does not support the video tag.
     </video>
     <div class="container">
-        <img src="species_placeholder.png" alt="Brine Shrimp" class="species-image">
+        <!-- Add the logo above the species image -->
+        <img src="PHMA.png" alt="PHMA Logo" class="logo">
+        <img src="artemia_salina.png" alt="Brine Shrimp" class="species-image">
         <button class="button" onclick="showInfo('Introduction')">Introduction</button>
         <button class="button" onclick="showInfo('Habitat & Range')">Habitat & Range</button>
         <button class="button" onclick="showInfo('Lifespan & Growth')">Lifespan & Growth</button>
