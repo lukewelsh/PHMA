@@ -6,7 +6,16 @@
     <title>WebAR Brine Shrimp</title>
 <!-- Link to Google Fonts for Cormorant Garamond -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
-
+<style>
+        /* Set video to fill the background */
+        video.background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Send the video behind content */
     <style>
         /* Apply Cormorant Garamond to the body and other elements */
         body {
@@ -43,7 +52,7 @@
             transition: transform 0.2s, background 0.3s;
         }
         .button:hover {
-            background: rgba(0, 150, 255, 0.9);
+            background: rgba(0, 167, 168, 0.9);
             transform: scale(1.1);
         }
         /* Info card style */
@@ -75,6 +84,13 @@
     </style>
 </head>
 <body>
+
+  <!-- Background Video -->
+    <video class="background-video" autoplay loop muted>
+        <source src="ocean.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>    
+    
     <div class="container">
         <img src="artemia_salina.png" alt="Brine Shrimp" class="species-image">
         <button class="button" onclick="showInfo('Introduction')">Introduction</button>
