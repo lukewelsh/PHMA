@@ -8,79 +8,58 @@
         body {
             margin: 0;
             overflow: hidden;
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            height: 100vh;
+            background: url('ocean.mp4') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            position: relative;
+            align-items: center;
+            height: 100vh;
             flex-direction: column;
-            background-color: #000;
-        }
-        /* Video background */
-        video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1; /* Keeps video behind content */
+            text-align: center;
         }
         .container {
             position: relative;
             width: 90%;
             max-width: 600px;
-            text-align: center;
-            z-index: 1;
-            margin-top: 20px;
         }
-        /* Add logo styling */
         .logo {
-            max-width: 100%;
-            height: auto;
+            width: 200px; /* Adjust size as needed */
             margin-bottom: 20px;
         }
         .species-image {
             width: 100%;
             max-width: 300px;
             margin-bottom: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
         .button {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.8);
+            display: block;
+            background: rgba(0, 167, 168, 0.8);
             border: none;
-            padding: 10px 20px;
-            margin: 10px 5px;
+            padding: 10px;
+            margin: 5px;
             font-size: 16px;
             cursor: pointer;
             border-radius: 10px;
             transition: transform 0.2s, background 0.3s;
             text-align: center;
-            font-family: 'Cormorant Garamond', Georgia, serif;
         }
         .button:hover {
-            background: rgb(0, 167, 168); /* Correct hover color */
-            color: white;
+            background: rgba(0, 150, 255, 0.9);
             transform: scale(1.1);
         }
-        /* Adjusting info card style */
+        /* Info card style */
         .info-card {
             display: none;
             position: fixed;
-            bottom: 20px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
             max-width: 400px;
             text-align: center;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-            z-index: 10;
         }
         .info-card h2 {
             margin-top: 0;
@@ -97,14 +76,9 @@
     </style>
 </head>
 <body>
-    <video autoplay loop muted>
-        <source src="ocean.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <img src="PHMA.png" alt="Logo" class="logo">
     <div class="container">
-        <!-- Add the logo above the species image -->
-        <img src="PHMA.png" alt="PHMA Logo" class="logo">
-        <img src="artemia_salina.png" alt="Brine Shrimp" class="species-image">
+        <img src="species_placeholder.png" alt="Brine Shrimp" class="species-image">
         <button class="button" onclick="showInfo('Introduction')">Introduction</button>
         <button class="button" onclick="showInfo('Habitat & Range')">Habitat & Range</button>
         <button class="button" onclick="showInfo('Lifespan & Growth')">Lifespan & Growth</button>
@@ -129,16 +103,24 @@
             "Taxonomy": "Domain: Eukaryota<br>Kingdom: Animalia<br>Phylum: Arthropoda<br>Class: Branchiopoda<br>Order: Anostraca<br>Family: Artemiidae<br>Genus: Artemia<br>Species: A. salina"
         };
 
-        // Show Info Card
+        // Function to show info card with specific topic content
         function showInfo(topic) {
-            document.getElementById("cardTitle").innerHTML = topic;
-            document.getElementById("cardContent").innerHTML = infoData[topic];
-            document.getElementById("infoCard").style.display = "block";
+            const infoCard = document.getElementById('infoCard');
+            const cardTitle = document.getElementById('cardTitle');
+            const cardContent = document.getElementById('cardContent');
+
+            // Set the title and content of the info card based on the topic
+            cardTitle.innerText = topic;
+            cardContent.innerHTML = infoData[topic];
+
+            // Show the info card
+            infoCard.style.display = 'block';
         }
 
-        // Close Info Card
+        // Function to close the info card
         function closeInfo() {
-            document.getElementById("infoCard").style.display = "none";
+            const infoCard = document.getElementById('infoCard');
+            infoCard.style.display = 'none';
         }
     </script>
 </body>
