@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebAR Brine Shrimp</title>
-<!-- Link to Google Fonts for Cormorant Garamond -->
+
+    <!-- Link to Google Fonts for Cormorant Garamond -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
-<style>
+
+    <style>
         /* Set video to fill the background */
         video.background-video {
             position: absolute;
@@ -16,30 +18,36 @@
             height: 100%;
             object-fit: cover;
             z-index: -1; /* Send the video behind content */
-    <style>
+        }
+
         /* Apply Cormorant Garamond to the body and other elements */
         body {
             font-family: 'Cormorant Garamond', Georgia, serif;
             margin: 0;
             overflow: hidden;
-            background: url('images/ocean.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background-color: #000; /* Fallback background color */
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
         }
+
         .container {
             position: relative;
             width: 90%;
             max-width: 600px;
             text-align: center;
+            z-index: 1; /* Make sure content stays on top of video */
         }
+
+        /* Resize the species image */
         .species-image {
-            width: 100%;
-            max-width: 300px;
+            width: 80%; /* Adjusted size to fit content area */
+            max-width: 300px; /* Keep a maximum width */
+            height: auto;
             margin-bottom: 20px;
         }
+
         .button {
             display: block;
             background: rgba(255, 255, 255, 0.8);
@@ -51,10 +59,12 @@
             border-radius: 10px;
             transition: transform 0.2s, background 0.3s;
         }
+
         .button:hover {
             background: rgba(0, 167, 168, 0.9);
             transform: scale(1.1);
         }
+
         /* Info card style */
         .info-card {
             display: none;
@@ -69,9 +79,11 @@
             text-align: center;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
         }
+
         .info-card h2 {
             margin-top: 0;
         }
+
         .info-card button {
             background: #ff0000;
             color: white;
@@ -85,12 +97,12 @@
 </head>
 <body>
 
-  <!-- Background Video -->
+    <!-- Background Video -->
     <video class="background-video" autoplay loop muted>
         <source src="ocean.mp4" type="video/mp4">
         Your browser does not support the video tag.
-    </video>    
-    
+    </video>
+
     <div class="container">
         <img src="artemia_salina.png" alt="Brine Shrimp" class="species-image">
         <button class="button" onclick="showInfo('Introduction')">Introduction</button>
