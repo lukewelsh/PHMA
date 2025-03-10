@@ -14,6 +14,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            flex-direction: column;
         }
         /* Video background */
         video {
@@ -35,7 +36,8 @@
         .species-image {
             width: 100%;
             max-width: 300px;
-            margin-bottom: 20px;
+            margin: 0 auto 20px; /* Centers the image */
+            display: block;
         }
         .button {
             display: inline-block;
@@ -53,18 +55,18 @@
             background: rgba(0, 150, 255, 0.9);
             transform: scale(1.1);
         }
+        /* Adjusting info card style */
         .info-card {
             display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative;
+            margin-top: 30px;
             background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
             max-width: 400px;
             text-align: center;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1; /* Ensure info card stays on top */
         }
         .info-card h2 {
             margin-top: 0;
@@ -81,14 +83,12 @@
     </style>
 </head>
 <body>
-    <!-- Ocean video background -->
-    <video autoplay muted loop>
+    <video autoplay loop muted>
         <source src="ocean.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-
     <div class="container">
-        <img src="artemia_salina.png" alt="Brine Shrimp" class="species-image">
+        <img src="species_placeholder.png" alt="Brine Shrimp" class="species-image">
         <button class="button" onclick="showInfo('Introduction')">Introduction</button>
         <button class="button" onclick="showInfo('Habitat & Range')">Habitat & Range</button>
         <button class="button" onclick="showInfo('Lifespan & Growth')">Lifespan & Growth</button>
@@ -110,27 +110,19 @@
             "Habitat & Range": "Found in high-salinity environments like the Great Salt Lake and salt flats worldwide.",
             "Lifespan & Growth": "Brine shrimp live up to a few months reaching adulthood in as little as 8 days, growing to about 1 cm long.",
             "Role in the Ecosystem": "Essential food for fish and filter feeders; their cysts are a key ingredient in aquaculture. At the aquarium we feed cultured Artemia to sea stars, sea cucumbers, anemones, scallops, capelin, jellyfish, and lumpfish.",
-            "Taxonomy": "Domain: Eukaryota<br>Kingdom: Animalia<br>Phylum: Arthropoda<br>Class: Branchiopoda<br>Order: Anostraca<br>Family: Artemiidae<br>Genus: Artemia<br>Species: A. salina"
+            "Taxonomy": "Domain: Eukaryota<br>Kingdom: Animalia<br>Phylum: Arthropoda<br>Class: Branchiopoda<br>Order: Anostraca<br>Family: Artemiidae<br>Genus: Artemia"
         };
 
-        // Function to show info card with specific topic content
+        // Show Info Card
         function showInfo(topic) {
-            const infoCard = document.getElementById('infoCard');
-            const cardTitle = document.getElementById('cardTitle');
-            const cardContent = document.getElementById('cardContent');
-
-            // Set the title and content of the info card based on the topic
-            cardTitle.innerText = topic;
-            cardContent.innerHTML = infoData[topic];
-
-            // Show the info card
-            infoCard.style.display = 'block';
+            document.getElementById("cardTitle").innerHTML = topic;
+            document.getElementById("cardContent").innerHTML = infoData[topic];
+            document.getElementById("infoCard").style.display = "block";
         }
 
-        // Function to close the info card
+        // Close Info Card
         function closeInfo() {
-            const infoCard = document.getElementById('infoCard');
-            infoCard.style.display = 'none';
+            document.getElementById("infoCard").style.display = "none";
         }
     </script>
 </body>
